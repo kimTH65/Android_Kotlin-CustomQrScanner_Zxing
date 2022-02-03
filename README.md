@@ -1,0 +1,1 @@
+# Kotlin_customQrScanner_zxing
