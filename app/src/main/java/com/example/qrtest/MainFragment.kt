@@ -3,6 +3,7 @@ package com.example.qrtest
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,10 +29,15 @@ class MainFragment : Fragment(){
     ): View? {
         _binding = FragmentMainBinding.inflate(inflater, container, false)
 
-        capture = CaptureManager(requireContext() as Activity?,binding.barcodescanner)
-        capture.initializeFromIntent(Intent(), savedInstanceState)
-        capture.decode()
+        val integrator = IntentIntegrator.forSupportFragment(this@MainFragment)
 
+        integrator.setOrientationLocked(false)
+        integrator.setPrompt("Scan QR code")
+        integrator.setBeepEnabled(false)
+        integrator.captureActivity = Scanner::class.java
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE)
+
+        integrator.initiateScan()
         return binding.root
     }
 
@@ -39,33 +45,25 @@ class MainFragment : Fragment(){
         super.onDestroyView()
         _binding = null
     }
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        val result : IntentResult = IntentIntegrator.parseActivityResult(requestCode, resultCode, data)
+        if(result !=null) {
+            if(result.contents == null) {
+                // qr코드에 주소가 없거나, 뒤로가기 클릭 시
+                Log.d("#####################",result.contents.toString())
+                Toast.makeText(requireContext() as Activity?,"cancelled", Toast.LENGTH_LONG).show()
+            } else {
+                //qr코드에 주소가 있을때 -> 주소에 관한 Toast 띄우는 함수 호출
+                Log.d("#####################",result.contents.toString())
+                Toast.makeText(requireContext() as Activity?,result.contents.toString(), Toast.LENGTH_LONG).show()
 
-    override fun onResume() {
-        super.onResume()
-        capture.onResume()
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data)
+        }
+
     }
 
-    override fun onPause() {
-        super.onPause()
-        capture.onPause()
-    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        capture.onDestroy()
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-        capture.onSaveInstanceState(outState)
-    }
-
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        capture.onRequestPermissionsResult(requestCode,permissions, grantResults)
-    }
 
 }
