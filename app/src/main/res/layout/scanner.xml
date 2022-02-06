@@ -23,9 +23,8 @@
             android:id="@+id/barcodescanner"
             android:layout_width="300dp"
             android:layout_height="300dp"
-            zxing_scanner_layout="@layout/custom_scanner_barcord"
+            app:zxing_scanner_layout="@layout/custom_scanner_barcord"
             app:zxing_viewfinder_laser_visibility="false"
-
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

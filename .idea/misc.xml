@@ -5,7 +5,9 @@
       <map>
         <entry key="..\:/qr/app/src/main/res/layout/activity_main.xml" value="0.12135416666666667" />
         <entry key="..\:/qr/app/src/main/res/layout/custom_barcord.xml" value="0.12135416666666667" />
+        <entry key="..\:/qr/app/src/main/res/layout/custom_scanner_barcord.xml" value="0.1" />
         <entry key="..\:/qr/app/src/main/res/layout/fragment_main.xml" value="0.12135416666666667" />
+        <entry key="..\:/qr/app/src/main/res/layout/fragment_scanner.xml" value="0.1" />
         <entry key="..\:/qr/app/src/main/res/layout/scanner.xml" value="0.12" />
         <entry key="..\:/qrTest/app/src/main/res/drawable/ic_launcher_background.xml" value="0.184" />
         <entry key="..\:/qrTest/app/src/main/res/layout/activity_main.xml" value="0.22509057971014493" />
