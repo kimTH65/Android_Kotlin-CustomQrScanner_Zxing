@@ -18,7 +18,7 @@ class Scanner : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ScannerBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        binding.barcodescanner.setStatusText("") // 스캐너 아래쪽 텍스트 설정
         capture = CaptureManager(this,binding.barcodescanner)
         capture.initializeFromIntent(Intent(), savedInstanceState)
         capture.decode()
