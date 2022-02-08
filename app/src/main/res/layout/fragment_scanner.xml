@@ -4,7 +4,37 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <TextView
+        android:padding="30dp"
+        android:id="@+id/topText"
+        android:textColor="@color/black"
+        android:autoSizeTextType="uniform"
+        android:layout_width="match_parent"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:text="コンビニATMに表示されたに次元コードを読み取って\nください。"
+        tools:ignore="MissingConstraints" />
 
+    <TextView
+        android:id="@+id/bottomText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoSizeTextType="uniform"
+        android:padding="30dp"
+        android:text="※ カメラの使用が必要です。下のボタンをタップして\nカメラの使用を許可してください。"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/allowCamera"
+        tools:ignore="MissingConstraints" />
 
+    <Button
+        android:id="@+id/allowCamera"
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:text="カメラの使用設定"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
