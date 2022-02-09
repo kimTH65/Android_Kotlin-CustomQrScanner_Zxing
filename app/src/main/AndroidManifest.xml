@@ -12,7 +12,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:screenOrientation="fullSensor"
-        tools:replace="screenOrientation"
         android:theme="@style/Theme.QrTest">
         <activity
             android:name=".MainActivity"
