@@ -1,4 +1,4 @@
-# Kotlin_customQrScanner_zxing
+# Android(Kotlin)-CustomQrScanner_Zxing
 <h3>zxing fragment </h3>
 fragment = ScannerFragment.kt, fragment_scanner.xml<br>
 custom scanner view = Scanner.kt, scanner.xml<br>
